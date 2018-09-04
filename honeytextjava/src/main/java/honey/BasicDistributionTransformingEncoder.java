@@ -1,15 +1,28 @@
 package honey;
 
+import java.math.BigInteger;
+import java.nio.charset.Charset;
+
 public class BasicDistributionTransformingEncoder implements DistributionTransformingEncoder{
 
     //kell a salt?
     //bejön egy szó
     //szó -> binary
-    //binary + salt
     //visszaadja az így kapott stringet
     public String DTEncode(String text) {
+        StringBuilder resultBuilder = new StringBuilder();
 
-        return null;
+        byte[] textBytes = text.getBytes(Charset.forName("UTF-8"));
+        for (int i = 0; i < textBytes.length; i++) {
+            resultBuilder.append(
+                    String.format(
+                            "%8s",
+                            Integer.toBinaryString(textBytes[i] & 0xFF)
+                    ).replace(' ', '0')
+            );
+        }
+
+        return resultBuilder.toString();
     }
 
     //visszafejtés
@@ -17,7 +30,6 @@ public class BasicDistributionTransformingEncoder implements DistributionTransfo
     //ha valós szó, akkor minden ok
     //ha nem valós szó, akkor kiválasztani egyet az adatbázisból valamilyen számítás alapján
     public String DTDecode(String encodedText) {
-
-        return null;
+        return new String(new BigInteger(encodedText, 2).toByteArray(), Charset.forName("UTF-8"));
     }
 }
