@@ -1,4 +1,4 @@
-package honey;
+package honey.dte;
 
 import model.Word;
 

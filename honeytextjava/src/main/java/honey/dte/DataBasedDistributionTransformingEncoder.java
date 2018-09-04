@@ -1,18 +1,30 @@
-package honey;
+package honey.dte;
 
 import java.math.BigInteger;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import model.Word;
 import model.WordClass;
 
+//TODO it only allows one seed for a word. (what is OK for me.)
 public class DataBasedDistributionTransformingEncoder implements DistributionTransformingEncoder {
 
     private Map<WordClass, List<String>> data;
 
-    public DataBasedDistributionTransformingEncoder(Map<WordClass, List<String>> data) {
-        this.data = data;
+    public DataBasedDistributionTransformingEncoder(List<Word> words) {
+        data = new HashMap<>();
+        for(Word word : words) {
+            if(data.containsKey(word.getWordClass())) {
+                data.get(word.getWordClass()).add(word.getText());
+            } else {
+                data.put(
+                        word.getWordClass(),
+                        new ArrayList<>(
+                                Arrays.asList(word.getText())
+                        )
+                );
+            }
+        }
     }
 
     @Override

@@ -7,6 +7,8 @@ public class Word {
         this.wordClass = wordClass;
     }
 
+    public Word(){}
+
     private String text;
     private WordClass wordClass;
 
