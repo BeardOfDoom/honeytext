@@ -1,5 +1,6 @@
 package honey;
 
+import java.math.BigInteger;
 import java.util.List;
 import java.util.Map;
 
@@ -16,12 +17,14 @@ public class DataBasedDistributionTransformingEncoder implements DistributionTra
 
     @Override
     public String DTEncode(Word word) {
-        List<String> wordsOfClass = data.get(word.getWordClass());
-        return null;
+        return String.valueOf(data.get(word.getWordClass()).indexOf(word.getText()));
     }
 
     @Override
     public String DTDecode(Word encodedWord) {
-        return null;
+        List<String> wordsOfClass = data.get(encodedWord.getWordClass());
+        BigInteger index = new BigInteger(encodedWord.getText(), 16);
+        int realIndex = index.mod(BigInteger.valueOf(wordsOfClass.size())).intValue();
+        return wordsOfClass.get(realIndex);
     }
 }
