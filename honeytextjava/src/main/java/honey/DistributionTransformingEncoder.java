@@ -1,9 +1,11 @@
 package honey;
 
+import model.Word;
+
 public interface DistributionTransformingEncoder {
 
-    public String DTEncode(String text);
+    public String DTEncode(Word word);
 
-    public String DTDecode(String encodedText);
+    public String DTDecode(Word encodedWord);
 
 }

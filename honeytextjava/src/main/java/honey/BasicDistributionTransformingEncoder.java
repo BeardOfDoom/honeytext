@@ -1,18 +1,17 @@
 package honey;
 
+import model.Word;
+
 import java.math.BigInteger;
 import java.nio.charset.Charset;
 
 public class BasicDistributionTransformingEncoder implements DistributionTransformingEncoder{
 
-    //kell a salt?
-    //bejön egy szó
-    //szó -> binary
-    //visszaadja az így kapott stringet
-    public String DTEncode(String text) {
+    @Override
+    public String DTEncode(Word word) {
         StringBuilder resultBuilder = new StringBuilder();
 
-        byte[] textBytes = text.getBytes(Charset.forName("UTF-8"));
+        byte[] textBytes = word.getText().getBytes(Charset.forName("UTF-8"));
         for (int i = 0; i < textBytes.length; i++) {
             resultBuilder.append(
                     String.format(
@@ -25,11 +24,8 @@ public class BasicDistributionTransformingEncoder implements DistributionTransfo
         return resultBuilder.toString();
     }
 
-    //visszafejtés
-    //felismerni hogy ez egy valós szó-e (coreNLP)
-    //ha valós szó, akkor minden ok
-    //ha nem valós szó, akkor kiválasztani egyet az adatbázisból valamilyen számítás alapján
-    public String DTDecode(String encodedText) {
-        return new String(new BigInteger(encodedText, 2).toByteArray(), Charset.forName("UTF-8"));
+    @Override
+    public String DTDecode(Word encodedWord) {
+        return new String(new BigInteger(encodedWord.getText(), 2).toByteArray(), Charset.forName("UTF-8"));
     }
 }

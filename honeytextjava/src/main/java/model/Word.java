@@ -2,9 +2,13 @@ package model;
 
 public class Word {
 
+    public Word(String text, WordClass wordClass) {
+        this.text = text;
+        this.wordClass = wordClass;
+    }
+
     private String text;
     private WordClass wordClass;
-    private String seedFromBinary;
 
     public String getText() {
         return text;
@@ -14,19 +18,11 @@ public class Word {
         return wordClass;
     }
 
-    public String getSeedFromBinary() {
-        return seedFromBinary;
-    }
-
     public void setText(String text) {
         this.text = text;
     }
 
     public void setWordClass(WordClass wordClass) {
         this.wordClass = wordClass;
-    }
-
-    public void setSeedFromBinary(String seedFromBinary) {
-        this.seedFromBinary = seedFromBinary;
     }
 }
