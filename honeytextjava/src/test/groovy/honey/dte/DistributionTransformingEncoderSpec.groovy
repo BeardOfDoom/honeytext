@@ -1,4 +1,4 @@
-package groovy.honey
+package groovy.honey.dte
 
 import honey.dte.BasicDistributionTransformingEncoder
 import honey.dte.DataBasedDistributionTransformingEncoder
@@ -17,7 +17,7 @@ class DistributionTransformingEncoderSpec extends Specification {
         def result = dte.DTEncode(input)
 
         then:
-        input.getText() == dte.DTDecode(new Word(result, input.getWordClass()))
+        input.getText().equals(dte.DTDecode(new Word(result, input.getWordClass())))
     }
 
     def "Basic test of data based DTE."() {
@@ -31,6 +31,6 @@ class DistributionTransformingEncoderSpec extends Specification {
         def result = dte.DTEncode(input)
 
         then:
-        input.getText() == dte.DTDecode(new Word(result, input.getWordClass()))
+        input.getText().equals(dte.DTDecode(new Word(result, input.getWordClass())))
     }
 }
