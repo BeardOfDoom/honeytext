@@ -1,6 +1,5 @@
-package honey;
+package honey.crypto;
 
-import honey.crypto.SymmetricCrypto;
 import honey.dte.IDistributionTransformingEncoder;
 import model.Word;
 

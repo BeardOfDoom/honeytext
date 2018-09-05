@@ -1,6 +1,6 @@
-package groovy.honey
+package groovy.honey.crypto
 
-import honey.HoneyEncryption
+import honey.crypto.HoneyEncryption
 import honey.dte.DataBasedDistributionTransformingEncoder
 import model.Word
 import model.WordClass

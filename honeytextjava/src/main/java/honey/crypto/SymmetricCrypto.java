@@ -37,10 +37,8 @@ public class SymmetricCrypto {
 
             return new String(original);
         } catch (Exception ex) {
-            ex.printStackTrace();
+            return encrypted;
         }
-
-        return encrypted;
     }
 
 }

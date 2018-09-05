@@ -1,4 +1,4 @@
-package honey;
+package honey.crypto;
 
 import model.Word;
 
