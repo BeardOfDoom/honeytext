@@ -29,13 +29,21 @@ public class DataBasedDistributionTransformingEncoder implements IDistributionTr
 
     @Override
     public String DTEncode(Word word) {
-        return String.valueOf(data.get(word.getWordClass()).indexOf(word.getText()));
+        return new String(
+                BigInteger.valueOf(
+                        data.get(
+                                word.getWordClass()
+                        ).indexOf(
+                                word.getText()
+                        )
+                ).toByteArray()
+        );
     }
 
     @Override
     public String DTDecode(Word encodedWord) {
         List<String> wordsOfClass = data.get(encodedWord.getWordClass());
-        BigInteger index = new BigInteger(encodedWord.getText(), 16);
+        BigInteger index = new BigInteger(encodedWord.getText().getBytes());
         int realIndex = index.mod(BigInteger.valueOf(wordsOfClass.size())).intValue();
         return wordsOfClass.get(realIndex);
     }

@@ -7,7 +7,7 @@ class SymmetricCryptoSpec extends Specification {
     def "Basic test of the encryption"() {
         given:
         def key = "Bar12345Bar12345" // 128 bit key
-        def initVector = "RandomInitVector" // 16 bytes IV
+        def initVector = "RandomInitVector".getBytes() // 16 bytes IV
         def input = "GET SOME"
 
         when:

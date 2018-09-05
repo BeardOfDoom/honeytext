@@ -7,9 +7,9 @@ import java.util.Base64;
 
 public class SymmetricCrypto {
 
-    public static String encrypt(String key, String initVector, String value) {
+    public static String encrypt(String key, byte[] initVector, String value) {
         try {
-            IvParameterSpec iv = new IvParameterSpec(initVector.getBytes("UTF-8"));
+            IvParameterSpec iv = new IvParameterSpec(initVector);
             SecretKeySpec skeySpec = new SecretKeySpec(key.getBytes("UTF-8"), "AES");
 
             Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5PADDING");
@@ -25,9 +25,9 @@ public class SymmetricCrypto {
         return null;
     }
 
-    public static String decrypt(String key, String initVector, String encrypted) {
+    public static String decrypt(String key, byte[] initVector, String encrypted) {
         try {
-            IvParameterSpec iv = new IvParameterSpec(initVector.getBytes("UTF-8"));
+            IvParameterSpec iv = new IvParameterSpec(initVector);
             SecretKeySpec skeySpec = new SecretKeySpec(key.getBytes("UTF-8"), "AES");
 
             Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5PADDING");
@@ -40,7 +40,7 @@ public class SymmetricCrypto {
             ex.printStackTrace();
         }
 
-        return null;
+        return encrypted;
     }
 
 }
