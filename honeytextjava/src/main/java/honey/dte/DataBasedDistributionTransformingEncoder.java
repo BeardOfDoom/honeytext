@@ -7,7 +7,7 @@ import model.Word;
 import model.WordClass;
 
 //TODO it only allows one seed for a word. (what is OK for me.)
-public class DataBasedDistributionTransformingEncoder implements DistributionTransformingEncoder {
+public class DataBasedDistributionTransformingEncoder implements IDistributionTransformingEncoder {
 
     private Map<WordClass, List<String>> data;
 

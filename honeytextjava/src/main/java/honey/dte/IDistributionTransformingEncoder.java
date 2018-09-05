@@ -2,7 +2,7 @@ package honey.dte;
 
 import model.Word;
 
-public interface DistributionTransformingEncoder {
+public interface IDistributionTransformingEncoder {
 
     public String DTEncode(Word word);
 

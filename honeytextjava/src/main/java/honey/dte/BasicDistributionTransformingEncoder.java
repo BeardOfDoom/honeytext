@@ -5,7 +5,7 @@ import model.Word;
 import java.math.BigInteger;
 import java.nio.charset.Charset;
 
-public class BasicDistributionTransformingEncoder implements DistributionTransformingEncoder{
+public class BasicDistributionTransformingEncoder implements IDistributionTransformingEncoder {
 
     @Override
     public String DTEncode(Word word) {
