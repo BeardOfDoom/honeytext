@@ -1,68 +1,68 @@
 [{
     "text": "good",
-    "wordClass": "ADJECTIVE"
+    "wordClass": "JJ"
 },
 {
     "text": "new",
-    "wordClass": "ADJECTIVE"
+    "wordClass": "JJ"
 },
 {
     "text": "great",
-    "wordClass": "ADJECTIVE"
+    "wordClass": "JJ"
 },
 {
     "text": "little",
-    "wordClass": "ADJECTIVE"
+    "wordClass": "JJ"
 },
 {
     "text": "old",
-    "wordClass": "ADJECTIVE"
+    "wordClass": "JJ"
 },
 {
     "text": "big",
-    "wordClass": "ADJECTIVE"
+    "wordClass": "JJ"
 },
 {
     "text": "bad",
-    "wordClass": "ADJECTIVE"
+    "wordClass": "JJ"
 },
 {
     "text": "young",
-    "wordClass": "ADJECTIVE"
+    "wordClass": "JJ"
 },
 {
     "text": "small",
-    "wordClass": "ADJECTIVE"
+    "wordClass": "JJ"
 },
 {
     "text": "angry",
-    "wordClass": "ADJECTIVE"
+    "wordClass": "JJ"
 },
 {
     "text": "clever",
-    "wordClass": "ADJECTIVE"
+    "wordClass": "JJ"
 },
 {
     "text": "cute",
-    "wordClass": "ADJECTIVE"
+    "wordClass": "JJ"
 },
 {
     "text": "long",
-    "wordClass": "ADJECTIVE"
+    "wordClass": "JJ"
 },
 {
     "text": "polite",
-    "wordClass": "ADJECTIVE"
+    "wordClass": "JJ"
 },
 {
     "text": "slow",
-    "wordClass": "ADJECTIVE"
+    "wordClass": "JJ"
 },
 {
     "text": "weird",
-    "wordClass": "ADJECTIVE"
+    "wordClass": "JJ"
 },
 {
     "text": "windy",
-    "wordClass": "ADJECTIVE"
+    "wordClass": "JJ"
 }]

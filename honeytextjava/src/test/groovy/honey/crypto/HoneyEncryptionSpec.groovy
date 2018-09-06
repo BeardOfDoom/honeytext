@@ -13,7 +13,7 @@ class HoneyEncryptionSpec extends Specification {
     def "Basic test of the honey encryption"() {
         given:
         def key = "Bar12345Bar12345" // 128 bit key
-        def input = new Word("good", WordClass.ADJECTIVE)
+        def input = new Word("good", WordClass.JJ)
         def testDataFile =  new File(getClass().getClassLoader().getResource("adjectives.json").getFile())
         def words = WordMapper.mapWordsFromJson(testDataFile)
         def dte = new DataBasedDistributionTransformingEncoder(words)
@@ -23,14 +23,14 @@ class HoneyEncryptionSpec extends Specification {
         def result = honeyEncryption.encrypt(key, input)
 
         then:
-        input.getText().equals(honeyEncryption.decrypt(key,result.getInitVector(), result.getCiphertext()))
+        input.getText().equals(honeyEncryption.decrypt(key, result))
     }
 
     def "Basic test of the honey encryption, with wrong password"() {
         given:
         def encryptionKey = "Bar12345Bar12345" // 128 bit key
         def decryptionKey = "Bar12345Bar12asd" // 128 bit key
-        def input = new Word("good", WordClass.ADJECTIVE)
+        def input = new Word("good", WordClass.JJ)
         def testDataFile =  new File(getClass().getClassLoader().getResource("adjectives.json").getFile())
         def words = WordMapper.mapWordsFromJson(testDataFile)
         def dte = new DataBasedDistributionTransformingEncoder(words)
@@ -40,7 +40,7 @@ class HoneyEncryptionSpec extends Specification {
         def result = honeyEncryption.encrypt(encryptionKey, input)
 
         then:
-        !input.getText().equals(honeyEncryption.decrypt(decryptionKey, result.getInitVector(), result.getCiphertext()))
+        !input.getText().equals(honeyEncryption.decrypt(decryptionKey, result))
     }
 }
 

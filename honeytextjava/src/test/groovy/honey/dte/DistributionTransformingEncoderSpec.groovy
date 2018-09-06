@@ -10,7 +10,7 @@ import spock.lang.Specification
 class DistributionTransformingEncoderSpec extends Specification {
     def "Basic test of Basic DTE."() {
         given:
-        def input = new Word("good", WordClass.ADJECTIVE)
+        def input = new Word("good", WordClass.JJ)
         def dte = new BasicDistributionTransformingEncoder()
 
         when:
@@ -23,7 +23,7 @@ class DistributionTransformingEncoderSpec extends Specification {
     def "Basic test of data based DTE."() {
         given:
         def testDataFile =  new File(getClass().getClassLoader().getResource("adjectives.json").getFile())
-        def input = new Word("good", WordClass.ADJECTIVE)
+        def input = new Word("good", WordClass.JJ)
         def words = WordMapper.mapWordsFromJson(testDataFile)
         def dte = new DataBasedDistributionTransformingEncoder(words)
 
